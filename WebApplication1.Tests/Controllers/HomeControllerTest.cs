@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebApplication1;
 using WebApplication1.Controllers;
+using System.Threading.Tasks;
 
 namespace WebApplication1.Tests.Controllers
 {
@@ -45,7 +46,7 @@ namespace WebApplication1.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            Task<ActionResult> result = controller.Contact() as Task<ActionResult>;
 
             // Assert
             Assert.IsNotNull(result);

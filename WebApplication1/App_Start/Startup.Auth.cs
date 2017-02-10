@@ -54,15 +54,16 @@ namespace WebApplication1
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1321380587923944",
+               appSecret: "f97333a37ccc21e94a2c5cb927597826");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "681204152223-137159cvuhjue2l3u0bomo48cf55q5gc.apps.googleusercontent.com",
+                ClientSecret = "QFOz9QEnnbKSvJUMT8PGvOSM"
+                //CallbackPath = new PathString("/signin-google")
+            });
         }
     }
 }
