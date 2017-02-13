@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Data.SqlClient;
 
 namespace WebApplication1.Controllers
 {
@@ -12,6 +13,16 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
+            var cstr = System.Configuration.ConfigurationManager.ConnectionStrings["TestConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(cstr))
+            {
+                SqlCommand cmd = new SqlCommand("select top 8 * from Customers;");
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = con;
+                con.Open();
+                SqlDataReader r = cmd.ExecuteReader();
+            }
+
             return View();
         }
 
